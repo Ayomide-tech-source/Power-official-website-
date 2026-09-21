@@ -22,13 +22,13 @@
     <link
         rel="icon"
         type="image/png"
-        href="logo.jpg"
+        href="assets/logo.jpg"
     >
 
     <!-- Apple Touch Icon -->
     <link
         rel="apple-touch-icon"
-        href="logo.jpg"
+        href="assets/logo.jpg"
     >
 
     <!-- Fonts -->
@@ -356,7 +356,7 @@
                 <div class="release-cover">
 
                     <img
-                        src="DND.jpg"
+                        src="dnd.jpg"
                         alt="CONNECT"
                     >
 
@@ -383,7 +383,7 @@
 
                 <div class="release-audio">
 
-                    <audio controls preload="none">
+                    <audio controls preload="metadata">
                         <source
                             src="dnd.mp3"
                             type="audio/mpeg"
@@ -434,7 +434,7 @@
 
                 <div class="release-audio">
 
-                    <audio controls preload="none">
+                    <audio controls preload="metadata">
                         <source
                             src="connect.mp3"
                             type="audio/mpeg"
@@ -485,7 +485,7 @@
 
                 <div class="release-audio">
 
-                    <audio controls preload="none">
+                    <audio controls preload="metadata">
                         <source
                             src="no-pressure.mp3"
                             type="audio/mpeg"
@@ -724,7 +724,7 @@
                     <video
                         controls
                         playsinline
-                        preload="none"
+                        preload="metadata"
                     >
 
                         <source
@@ -764,15 +764,28 @@
 
                 </div>
 
-                <button class="video-menu-toggle" type="button" aria-label="Video options" aria-expanded="false">⋮</button>
-                <div class="video-menu" role="menu">
-                    <button type="button" data-speed="0.5">0.5x</button>
-                    <button type="button" data-speed="1">1x</button>
-                    <button type="button" data-speed="1.5">1.5x</button>
-                    <button type="button" data-speed="2">2x</button>
-                    <a href="cover3.mp4" download="POWERBOI-VIDEO.mp4">Download video</a>
-                </div>
-</article>
+
+
+                <!-- DOWNLOAD -->
+
+                <a
+                    href="cover3.mp4"
+                    download="POWERBOI-VIDEO.mp4"
+                    class="video-download"
+                >
+
+                    <span class="download-text">
+                        DOWNLOAD VIDEO
+                    </span>
+
+                    <span class="download-icon">
+                        ↓
+                    </span>
+
+                </a>
+
+
+            </article>
 
 
 
@@ -790,7 +803,7 @@
                     <video
                         controls
                         playsinline
-                        preload="none"
+                        preload="metadata"
                     >
 
                         <source
@@ -808,6 +821,7 @@
 
 
                 <!-- VIDEO INFORMATION -->
+                2
 
                 <div class="video-info">
 
@@ -830,15 +844,28 @@
 
                 </div>
 
-                <button class="video-menu-toggle" type="button" aria-label="Video options" aria-expanded="false">⋮</button>
-                <div class="video-menu" role="menu">
-                    <button type="button" data-speed="0.5">0.5x</button>
-                    <button type="button" data-speed="1">1x</button>
-                    <button type="button" data-speed="1.5">1.5x</button>
-                    <button type="button" data-speed="2">2x</button>
-                    <a href="cover2.mp4" download="POWERBOI DND.mp4">Download video</a>
-                </div>
-</article>
+
+
+                <!-- DOWNLOAD -->
+
+                <a
+                    href="cover2.mp4"
+                    download="POWERBOI DND.mp4"
+                    class="video-download"
+                >
+
+                    <span class="download-text">
+                        DOWNLOAD VIDEO
+                    </span>
+
+                    <span class="download-icon">
+                        ↓
+                    </span>
+
+                </a>
+
+
+            </article>
 
 
 
@@ -856,7 +883,7 @@
                     <video
                         controls
                         playsinline
-                        preload="none"
+                        preload="metadata"
                     >
 
                         <source
@@ -896,15 +923,28 @@
 
                 </div>
 
-                <button class="video-menu-toggle" type="button" aria-label="Video options" aria-expanded="false">⋮</button>
-                <div class="video-menu" role="menu">
-                    <button type="button" data-speed="0.5">0.5x</button>
-                    <button type="button" data-speed="1">1x</button>
-                    <button type="button" data-speed="1.5">1.5x</button>
-                    <button type="button" data-speed="2">2x</button>
-                    <a href="cover.mp4" download="POWERBOI COVER.mp4">Download video</a>
-                </div>
-</article>
+
+
+                <!-- DOWNLOAD -->
+
+                <a
+                    href="cover.mp4"
+                    download="POWERBOI COVER.mp4"
+                    class="video-download"
+                >
+
+                    <span class="download-text">
+                        DOWNLOAD VIDEO
+                    </span>
+
+                    <span class="download-icon">
+                        ↓
+                    </span>
+
+                </a>
+
+
+            </article>
 
 
         </div>
@@ -1071,13 +1111,8 @@
                         </a>
 
 
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
+                        
+      
 
     </main>
 
@@ -1139,35 +1174,6 @@
 
     </footer>
 
-
-<script>
-(function () {
-    document.querySelectorAll(".video-item").forEach(function (item) {
-        const video = item.querySelector("video");
-        const toggle = item.querySelector(".video-menu-toggle");
-        const menu = item.querySelector(".video-menu");
-        if (!video || !toggle || !menu) return;
-        toggle.addEventListener("click", function (event) {
-            event.stopPropagation();
-            const open = item.classList.toggle("menu-open");
-            toggle.setAttribute("aria-expanded", String(open));
-        });
-        menu.querySelectorAll("[data-speed]").forEach(function (button) {
-            button.addEventListener("click", function () {
-                video.playbackRate = Number(button.dataset.speed);
-                item.classList.remove("menu-open");
-                toggle.setAttribute("aria-expanded", "false");
-            });
-        });
-        document.addEventListener("click", function (event) {
-            if (!item.contains(event.target)) {
-                item.classList.remove("menu-open");
-                toggle.setAttribute("aria-expanded", "false");
-            }
-        });
-    });
-})();
-</script>
 
 </body>
 
